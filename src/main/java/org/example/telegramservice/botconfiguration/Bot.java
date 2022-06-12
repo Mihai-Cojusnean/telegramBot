@@ -18,8 +18,10 @@ import java.util.Map;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
+    
     @Autowired
     Environment env;
+    
     private final Map<String, CommandGenerator<?>> commands = new HashMap<>();
 
     public void register(String[] presentCommands, CommandGenerator<?> generator) {
