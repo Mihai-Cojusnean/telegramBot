@@ -1,0 +1,135 @@
+problems:
+ - prbNr: 1
+   question: "Which of the following are not valid variable names?"
+   responses:
+     "\n A. -, 2blue
+      \n B. _blue, -
+      \n C. 2blue
+      \n D. blue$, _blue
+      \n E. Blue"
+   response_id:
+     - "A"
+     - "B"
+     - "C"
+     - "D"
+     - "E"
+     - "💡"
+   answer: "A"
+   answerExplication: "An identifier name must begin with a letter, dollar sign ($), or
+ underscore (_). Numbers are permitted only for subsequent characters."
+ - prbNr: 2
+   question:
+    "What is the value of tip after executing the following code snippet?
+     \n int meal = 5;\r\n
+     \n int tip = 2;\r\n
+     \n var total = meal + (meal>6 ? tip++ : tip--);\r\n"
+   responses:
+     "\n A. 1
+      \n B. 2
+      \n C. 3
+      \n D. 7
+      \n E. None of the above"
+   response_id:
+     - "A"
+     - "B"
+     - "C"
+     - "D"
+     - "E"
+     - "💡"
+   answer: "A"
+   answerExplication: "In a ternary expression, only one of the two right‐most expressions
+ is evaluated. Since meal>6 is false, tip‐‐ is evaluated, and tip++ is
+ skipped."
+ - prbNr: 3
+   question: "Which is equivalent to var q = 4.0f;?"
+   responses:
+     "\n A. float q = 4.0f;
+      \n B. Float q = 4.0f;
+      \n C. double q = 4.0f;
+      \n D. Double q = 4.0f;
+      \n E. Object q = 4.0f;"
+   response_id:
+     - "A"
+     - "B"
+     - "C"
+     - "D"
+     - "E"
+     - "💡"
+   answer: "A"
+   answerExplication: "The f in 4.0f means the type is a float, making option A correct.
+ Local variable type inference chooses an exact match rather than using
+ autoboxing to choose Float."
+ - prbNr: 4
+   question:
+    "What is the output of the following?
+     \n 12: var b = \"12\"; \r\n
+     \n 13: b += \"3\"; \r\n
+     \n 14: b.reverse(); \r\n
+     \n 15: System.out.println(b.toString());"
+   responses:
+     "\n A. 12;
+      \n B. 123;
+      \n C. 321;
+      \n D. The code does not compile.;"
+   response_id:
+     - "A"
+     - "B"
+     - "C"
+     - "D"
+     - "E"
+     - "💡"
+   answer: "C"
+   answerExplication: "Trick question. There is no reverse method on the String class.
+There is one on the StringBuilder class."
+# - prbNr: 5
+#   question: "What is the output of the following?
+#   5: var line = new StringBuilder(\"-\");
+#   6: var anotherLine = line.append(\"-\");
+#   7: System.out.print(line == anotherLine);
+#   8: System.out.print(\" \");
+#   9: System.out.print(line.length());"
+#   responses:
+#     - false 1;
+#     - false 2;
+#     - true 1;
+#     - true 2;
+#     - It does not compile;
+#   answer: 3
+#   answerExplication: "A StringBuilder is mutable, so the length is 2 after line 6
+#completes. The StringBuilder methods return a reference to the same
+#object, so you can chain method calls."
+# - prbNr: 6
+#   question: "How many of these compile?
+#   18: Comparator<String> c1 = (j, k) -> 0;
+#   19: Comparator<String> c2 = (String j, String k) -> 0;
+#   20: Comparator<String> c3 = (var j, String k) -> 0;
+#   21: Comparator<String> c4 = (var j, k) -> 0;
+#   22: Comparator<String> c5 = (var j, var k) -> 0"
+#   responses:
+#     - 0;
+#     - 1;
+#     - 2;
+#     - 3;
+#     - 4;
+#     - 5;
+#   answer: 3
+#   answerExplication: "Line 18 compiles because neither type is specified for the lambda
+#parameters. Lines 19 and 22 compile because the lambda parameters
+#use a type or var consistently."
+# - prbNr: 7
+#   question: "What is the output of the following?
+#   5: var line = new String(\"-\");
+#   6: var anotherLine = line.concat(\"-\");
+#   7: System.out.print(line == anotherLine);
+#   8: System.out.print(\" \");
+#   9: System.out.print(line.length())"
+#   responses:
+#     - false 1;
+#     - false 2;
+#     - true 1;
+#     - true 2;
+#     - It does not compile;
+#   answer: 0
+#   answerExplication: "A String is immutable, so a different object is returned on line 6.
+#The object anotherLine points to is of length 2 after line 6 completes.
+#However, the original line reference still points to an object of length."
