@@ -30,10 +30,11 @@ public class FindNearTableCommand implements CommandGenerator<SendLocation> {
         ApplicationConfig config = getConfig();
 
         getClosestLocation(config, userLatitude, userLongitude);
+
         message.sendMessage((int) locationInfo.get("tables"), (String) locationInfo.get("location name"), update);
         sendLocation.setChatId(update.getMessage().getChatId().toString());
-        sendLocation.setLatitude((Double) locationInfo.get("latitude"));
         sendLocation.setLongitude((Double) locationInfo.get("longitude"));
+        sendLocation.setLatitude((Double) locationInfo.get("latitude"));
 
         return sendLocation;
     }
@@ -41,6 +42,7 @@ public class FindNearTableCommand implements CommandGenerator<SendLocation> {
     private ApplicationConfig getConfig() throws IOException {
         File file = new File("src/main/resources/tables_locations.yaml");
         ObjectMapper objectMapper = new ObjectMapper(new YAMLFactory());
+
         return objectMapper.readValue(file, ApplicationConfig.class);
     }
 
@@ -51,6 +53,7 @@ public class FindNearTableCommand implements CommandGenerator<SendLocation> {
 
     public void getClosestLocation(ApplicationConfig config, @NonNull Double userLatitude, Double userLongitude) {
         double difference = Double.MAX_VALUE;
+
         for (int i = 0; i < config.getLocations().size(); i++) {
             LocationsConfig location = config.getLocations().get(i);
             double currDifference = Math.abs(userLatitude - Double.parseDouble(location.getLatitude()))
@@ -58,8 +61,8 @@ public class FindNearTableCommand implements CommandGenerator<SendLocation> {
             if (currDifference < difference) {
                 locationInfo.put("latitude", Double.parseDouble(location.getLatitude()));
                 locationInfo.put("longitude", Double.parseDouble(location.getLongitude()));
-                locationInfo.put("tables", location.getTables());
                 locationInfo.put("location name", location.getLocation());
+                locationInfo.put("tables", location.getTables());
                 difference = currDifference;
             }
         }
