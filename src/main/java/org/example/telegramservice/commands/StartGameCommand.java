@@ -18,13 +18,15 @@ public class StartGameCommand implements CommandGenerator<SendMessage> {
 
     @Override
     public SendMessage generate(Update update) {
-        BtnManager buttons = new BtnManager();
         Match match = userService.getOpponent(update);
         String format = "%s|%s|%s|%s\n%s|%s|%s|%s";
+        BtnManager buttons = new BtnManager();
+
         SendMessage sendMessage = new SendMessage(update.getMessage().getChatId().toString(), String.format(format,
                 "1. " + update.getMessage().getFrom().getFirstName(), match.getMyPts(), match.getMyScore(), "\uD83C\uDFD3",
                 "2. " + match.getOpponentName(), match.getOpponentPts(), match.getOpponentScore(), ""));
         sendMessage.setReplyMarkup(buttons.setInlineKeyboardMarkup(new String[][]{{"1.+", "2.+", "↔", "new game"}}));
+
         return sendMessage;
     }
 

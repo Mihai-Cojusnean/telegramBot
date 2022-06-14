@@ -12,9 +12,11 @@ public class OracleTestCmd implements CommandGenerator<SendMessage> {
     public SendMessage generate(Update update) {
         BtnManager btnManager = new BtnManager();
         SendMessage message = new SendMessage();
+
+        message.setReplyMarkup(btnManager.setInlineKeyboardMarkup(new String[][]{{"Java Data Types", "Program Flow"}}));
         message.setChatId(update.getMessage().getChatId().toString());
         message.setText("Choose topic");
-        message.setReplyMarkup(btnManager.setInlineKeyboardMarkup(new String[][]{{"Java Data Types", "Program Flow"}}));
+
         return message;
     }
 

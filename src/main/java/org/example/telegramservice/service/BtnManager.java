@@ -33,15 +33,16 @@ public class BtnManager {
 
     public ReplyKeyboardMarkup setStickyBtn(String[] btnName) {
         ReplyKeyboardMarkup replyKeyboardMarkup = new ReplyKeyboardMarkup();
-        replyKeyboardMarkup.setSelective(true);
+        replyKeyboardMarkup.setOneTimeKeyboard(false);
         replyKeyboardMarkup.setResizeKeyboard(true);
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
-        List<KeyboardRow> keyboard = new ArrayList<>();
+        replyKeyboardMarkup.setSelective(true);
         KeyboardRow keyboardFirstRow = new KeyboardRow();
+        List<KeyboardRow> keyboard = new ArrayList<>();
+
         Arrays.stream(btnName).forEach(btn -> keyboardFirstRow.add(new KeyboardButton(btn)));
-        replyKeyboardMarkup.setOneTimeKeyboard(false);
         keyboard.add(keyboardFirstRow);
         replyKeyboardMarkup.setKeyboard(keyboard);
+
         return replyKeyboardMarkup;
     }
 }
