@@ -8,8 +8,9 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 public class UnSupportedCommand implements CommandGenerator<SendMessage> {
     @Override
     public SendMessage generate(Update update) {
-        return new SendMessage(update.getMessage().getChatId().toString(), "What? Speak Bot language human. " +
-                "\nEducate your self, here are normal words: /start");
+        return new SendMessage(update.getMessage().getChatId().toString(),
+                "Unfortunately, I'm not Alexa or Siri to reply at everything :(," +
+                        " but i have some command like: /start or Oracle prob");
     }
 
     @Override

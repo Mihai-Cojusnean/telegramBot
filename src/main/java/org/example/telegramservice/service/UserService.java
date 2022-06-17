@@ -49,8 +49,10 @@ public class UserService {
         return TestRepo.save(new Test(
                 0,
                 0,
-                7,
-                0));
+                1010,
+                0,
+                0
+               ));
     }
 
     /* match database */
