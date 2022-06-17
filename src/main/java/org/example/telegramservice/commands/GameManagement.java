@@ -24,9 +24,9 @@ public class GameManagement implements CommandGenerator<EditMessageText> {
 
     @Override
     public EditMessageText generate(Update update) {
-        String gameState = getGameState(update.getCallbackQuery().getData());
         EditMessageText message = new EditMessageText();
         match = userService.getOpponent(update);
+        String gameState = getGameState(update.getCallbackQuery().getData());
 
         switch (gameState) {
             case "opponentWon" -> messageSetup(message, update, match.getOpponentName() + " won");
